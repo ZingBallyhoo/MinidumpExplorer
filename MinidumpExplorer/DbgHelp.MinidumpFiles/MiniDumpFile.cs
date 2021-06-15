@@ -39,7 +39,7 @@ namespace DbgHelp.MinidumpFiles
 
             try
             {
-                minidumpMappedFile = MemoryMappedFile.CreateFromFile(fileStream, Path.GetFileName(path), 0, MemoryMappedFileAccess.Read, null, HandleInheritability.None, false);
+                minidumpMappedFile = MemoryMappedFile.CreateFromFile(fileStream, Path.GetFileName(path), 0, MemoryMappedFileAccess.Read, HandleInheritability.None, false);
 
                 mappedFileView = NativeMethods.MapViewOfFile(minidumpMappedFile.SafeMemoryMappedFileHandle, NativeMethods.FILE_MAP_READ, 0, 0, IntPtr.Zero);
 
